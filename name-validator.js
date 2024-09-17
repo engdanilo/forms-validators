@@ -43,7 +43,7 @@ class NameValidator{
 
     // ________ Methods ________
     // This method checks if the name and surname have at least 3 characters
-    minimumLength(){
+    nameHasMinimumLength(){
         if(this.name.length < 3 || this.surname.length < 3){
             return false;
         }
@@ -51,7 +51,7 @@ class NameValidator{
     }
 
     // This method checks if the name and surname have numbers
-    hasNumbers(){
+    nameHasNoNumbers(){
         const numberRegex = /\d/;
         if(numberRegex.test(this.name) || numberRegex.test(this.surname)){
             return false;
@@ -60,7 +60,7 @@ class NameValidator{
     }
 
     // This method checks if the name and surname are strings
-    isString(){
+    nameIsNotString(){
         if(typeof this.name !== 'string' || typeof this.surname !== 'string'){
             return false;
         }
@@ -68,7 +68,7 @@ class NameValidator{
     }
 
     // This method checks if the name and surname have invalid characters
-    hasInvalidCharacters(){
+    nameHasNoInvalidCharacters(){
         const invalidCharsRegex = /[@#$%*&_)(}{+=.,><;:?`]/;
         if(invalidCharsRegex.test(this.name) || invalidCharsRegex.test(this.surname)){
             return false;
@@ -77,8 +77,8 @@ class NameValidator{
     }
 
     // This method checks if the name and surname are valid
-    isValid(){
-        if(this.minimumLength() && this.hasNumbers() && this.isString() && this.hasInvalidCharacters()){
+    nameIsValid(){
+        if(this.nameHasMinimumLength() && this.nameHasNoNumbers() && this.nameIsNotString() && this.nameHasNoInvalidCharacters()){
             return true;
         }
         return false;
@@ -87,10 +87,10 @@ class NameValidator{
 
 // To use the class in other files
 // const nameValidator = new NameValidator('John', 'Doe');
-// console.log(nameValidator.isValid()); // Returns True
+// console.log(nameValidator.nameIsValid()); // Returns True
 
 // const nameValidator2 = new NameValidator('John', 'Doe1');
-// console.log(nameValidator2.isValid()); // Returns False
+// console.log(nameValidator2.nameIsValid()); // Returns False
 
 // If you want to get the complete name
 // console.log(nameValidator.completeName); // Returns JOHN DOE
