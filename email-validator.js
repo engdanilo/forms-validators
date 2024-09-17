@@ -26,8 +26,9 @@ class EmailValidator {
 
     // Setter to set the email
     set email(novoEmail) {
-        if (this.isEmailValid(email)){
-            this._email = novoEmail.trim();
+        novoEmail = novoEmail.trim();
+        if (this.isEmailValid(novoEmail)) {
+            this._email = novoEmail;
             return true;
         }
         return false;
