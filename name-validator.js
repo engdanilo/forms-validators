@@ -60,7 +60,7 @@ class NameValidator{
     }
 
     // This method checks if the name and surname are strings
-    nameIsNotString(){
+    nameIsString(){
         if(typeof this.name !== 'string' || typeof this.surname !== 'string'){
             return false;
         }
@@ -78,7 +78,7 @@ class NameValidator{
 
     // This method checks if the name and surname are valid
     nameIsValid(){
-        if(this.nameHasMinimumLength() && this.nameHasNoNumbers() && this.nameIsNotString() && this.nameHasNoInvalidCharacters()){
+        if(this.nameHasMinimumLength() && this.nameHasNoNumbers() && this.nameIsString() && this.nameHasNoInvalidCharacters()){
             return true;
         }
         return false;
