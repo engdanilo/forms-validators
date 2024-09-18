@@ -29,7 +29,7 @@ class UsernameValidator{
 }
 
 // to test the code
-// let user = new UsernameValidator('john2024'); // should return false
+// let user = new UsernameValidator('john2024'); // should return true
 // console.log(user.usernameIsValid());
 // user.username = 'johnboy';
 // console.log(user.username); // The username can't be changed
