@@ -19,7 +19,7 @@ All documentation for the module can be found on GitHub: [FormsValidator Documen
 
 ## Installation
 
-To install FormsValidator, you can use the following commands:
+To install FormsValidator, you can use the following commands: 
 
 ### Install as a Dependency
 
