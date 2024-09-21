@@ -1,5 +1,5 @@
 {
-  "name": "formsvalidator",
+  "name": "brformsvalidator",
   "version": "2.0.0",
   "description": "FormsValidator is a comprehensive JavaScript library designed to validate various types of form inputs. This library provides a robust set of validators for common form fields such as CNPJ, CPF, email, name, date, and username. It ensures that the data entered by users meets the required format and constraints, making it easier to handle form validation in web applications. This module is primarily targeted at Brazilian users, as it includes specific validations for Brazilian documents such as CNPJ and CPF. However, it can also be used by people from other countries. Pull requests for the inclusion of validations for documents from other countries are welcome. All documentation for the module can be found on GitHub: https://github.com/engdanilo/forms-validators",
   "main": "formsValidator.js",

@@ -24,19 +24,19 @@ To install FormsValidator, you can use the following commands:
 ### Install as a Dependency
 
 ```bash
-npm install formsvalidator
+npm install brformsvalidator
 ```
 
 ### Install as a Production Dependency
 
 ```bash
-npm install formsvalidator --save
+npm install brformsvalidator --save
 ```
 
 ### Install as a Development Dependency
 
 ```bash
-npm install formsvalidator --save-dev
+npm install brformsvalidator --save-dev
 ```
 
 ## Usage
