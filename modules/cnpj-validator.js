@@ -84,17 +84,19 @@ class CnpjValidator {
     }
 }
 
-// To check if the cnpj is valid, you can use the following code:
-const newCnpj = new CnpjValidator('11.444.777/0001-62');
-console.log(`The Cnpj validation returned ${newCnpj.isCnpjTrue()}`);
+module.exports = CnpjValidator;
 
-console.log(`The Cnpj format is ${newCnpj.isCnpjFormatValid()}`);
+// // To check if the cnpj is valid, you can use the following code:
+// const newCnpj = new CnpjValidator('11.444.777/0001-62');
+// console.log(`The Cnpj validation returned ${newCnpj.isCnpjTrue()}`);
 
-// If you want to get the last two 
-console.log(`The Cnpj last digits is ${newCnpj.cnpjLastDigitsValid}`);
+// console.log(`The Cnpj format is ${newCnpj.isCnpjFormatValid()}`);
 
-// If you just want to change cnpj string to an array of numbers, you can use the following code:
-console.log(newCnpj.cnpjArray);
+// // If you want to get the last two 
+// console.log(`The Cnpj last digits is ${newCnpj.cnpjLastDigitsValid}`);
 
-// If you want to get the cnpj with the format 'xxx.xxx.xxx-xx', you can use the following code:
-console.log(newCnpj.cnpj);
+// // If you just want to change cnpj string to an array of numbers, you can use the following code:
+// console.log(newCnpj.cnpjArray);
+
+// // If you want to get the cnpj with the format 'xxx.xxx.xxx-xx', you can use the following code:
+// console.log(newCnpj.cnpj);
