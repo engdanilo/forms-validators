@@ -25,13 +25,10 @@ class EmailValidator {
     }
 
     // Setter to set the email
-    set email(novoEmail) {
-        novoEmail = novoEmail.trim();
-        if (this.isEmailValid(novoEmail)) {
-            this._email = novoEmail;
-            return true;
-        }
-        return false;
+    set email(setEmail) {
+        let newEmail = new EmailValidator(setEmail);
+        if (!newEmail.isEmailValid()) return false;
+        this._email = setEmail.trim();
     }
 
     isEmailValid() {
@@ -73,5 +70,12 @@ class EmailValidator {
 //     let emailValidator = new EmailValidator(email);
 //     console.log(emailValidator.isEmailValid());
 // }
+
+// let emailValidator = new EmailValidator('john@gmail.com');
+// console.log(emailValidator.isEmailValid()); // Returns True
+// emailValidator.email = 'john2gmail.com'; // returns false
+// console.log(emailValidator.email); // return the same email
+// emailValidator.email = 'john3@gmail.com'; // returns true
+// console.log(emailValidator.email); // return the new email
 
 module.exports = EmailValidator;

@@ -11,6 +11,7 @@
 // The code in this file validates the CPF number and checks if the last two digits are correct.
 
 // ________________________Symbols________________________
+const cpf = Symbol('cpf');
 const cpfSymbol = Symbol('cpfSymbol');
 const cpfLastDigits = Symbol('cpfLastDigits');
 
@@ -19,8 +20,8 @@ class CpfValidator {
     
     // IMPORTANT! The CPF need to be a string
     // The constructor receives a CPF as a string
-    constructor(cpf){
-        this.cpf = cpf.trim();
+    constructor(cpfInput){
+        this[cpf] = cpfInput.trim();
         this[cpfSymbol] = [];
         this[cpfLastDigits] = [];
     }
@@ -28,25 +29,32 @@ class CpfValidator {
     // ________________________Getters________________________
     // Getter to return the CPF as an array of numbers
     get cpfArray(){
+        if(this[cpfSymbol].length === 0){
+            this.cpfOrganizer();
+        }
         return this[cpfSymbol];
     }
 
     // Getter to return the CPF with the format 'xxx.xxx.xxx-xx'
-    get validCpf(){
-        const cpfString = this[cpfSymbol].join('');
-        const formatedCpf = `${cpfString.slice(0,3)}.${cpfString.slice(3,6)}.${cpfString.slice(6,9)}-${cpfString.slice(9, 11)}`;
-        return formatedCpf;
+    get cpf(){
+        return this[cpf]
     }
 
     // Getter to return the last two digits of a valid cpf with the first 9 digits
     get cpfLastDigitsValid(){
+        if (this[cpfLastDigits].length === 0) {
+            this.isCpfLastDigitsValid();
+        }
         return this[cpfLastDigits];
     }
 
     // ________________________Methods________________________
     // Method to organize the cpf string into an array of numbers
     cpfOrganizer(){
-        this[cpfSymbol] = this.cpf.replace(/[.-]/g, '').split('').map(Number);
+        if(typeof this[cpf] !== 'string'){
+            throw new Error('The CPF must be a string');
+        }
+        this[cpfSymbol] = this[cpf].replace(/[.-]/g, '').split('').map(Number);
     }
 
     // Method to check if the cpf format is valid
@@ -100,7 +108,7 @@ class CpfValidator {
     isCpfTrue(){
         // First, we need to check if the cpf is in the right format.
         if(!this.isCpfLastDigitsValid()) return false;
-        const validator1 = [...this.cpf.slice(-2)].map(Number);
+        const validator1 = [...this[cpf].split('').slice(-2)].map(Number);
         if(validator1[0] === this.cpfLastDigitsValid[0] && validator1[1] === this.cpfLastDigitsValid[1]){
             return true;
         } else {
@@ -111,16 +119,20 @@ class CpfValidator {
 
 
 // To check if the cpf is valid, you can use the following code:
-//const newCpf = new CpfValidator('123.456.789-09');
-//console.log(newCpf.isCpfTrue());
+// const newCpf = new CpfValidator('125.639.256-14');
+// console.log(`The CPF validation returned ${newCpf.isCpfTrue()}`);
 
-// If you want to get the last two 
-//console.log(newCpf.cpfLastDigitsValid);
+// console.log(`The CPF format is ${newCpf.isCpfFormatValid()}`);
 
-// If you just want to change cpf string to an array of numbers, you can use the following code:
-//console.log(newCpf.cpfArray);
+// // If you want to get the last two 
+// console.log(`The CPF last digits is ${newCpf.cpfLastDigitsValid}`);
 
-// If you want to get the cpf with the format 'xxx.xxx.xxx-xx', you can use the following code:
-//console.log(newCpf.validCpf);
+// // If you just want to change cpf string to an array of numbers, you can use the following code:
+// console.log(newCpf.cpfArray);
+
+// // If you want to get the cpf with the format 'xxx.xxx.xxx-xx', you can use the following code:
+// console.log(newCpf.cpf);
+
+
 
 module.exports = CpfValidator;

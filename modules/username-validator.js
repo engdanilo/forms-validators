@@ -17,6 +17,12 @@ class UsernameValidator{
         return this[_username];
     }
 
+    set username(usernameInput){
+        let username = new UsernameValidator(usernameInput);
+        if(!username.usernameIsValid()) return false;
+        this[_username] = usernameInput.trim();
+    }
+
     usernameIsValid(){
 
         const usernameRegex = new RegExp(`^[a-zA-z0-9]{${this.minlength},${this.maxlength}}$`);

@@ -44,7 +44,7 @@ class NameValidator{
     // ________ Methods ________
     // This method checks if the name and surname have at least 3 characters
     nameHasMinimumLength(){
-        if(this.name.length < 3 || this.surname.length < 3){
+        if(this.name.length < 2 || this.surname.length < 2){
             return false;
         }
         return true;
