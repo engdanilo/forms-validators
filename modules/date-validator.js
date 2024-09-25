@@ -3,31 +3,6 @@
 // The day should exist in the month.
 // The year should be a leap year if the date is 29/02.
 
-<<<<<<< HEAD
-class DateValidator{
-
-    constructor(date){
-        this._date = date.trim();
-    }
-
-    get date(){
-        return this._date;
-    }
-
-    set date(setDate){
-        let date = new DateValidator(setDate);
-        if(!date.dateIsValid()) return false;
-        this._date = setDate.trim();
-    }
-
-    // check if the date is in the format dd/mm/yyyy
-    dateFormatIsValid(){
-
-        // regex to check the date format
-        const dateRegex = /^(0[0-9]|1[0-9]|2[0-9]|3[0-2])\/(0[0-9]|1[0-2])\/(19[0-9]{2,}|20[0-9]{2,})$/;
-
-        if(!dateRegex.test(this._date)){
-=======
 // Define a class to validate dates
 class DateValidator {
 
@@ -67,21 +42,11 @@ class DateValidator {
         if (!dateRegex.test(this._date)) {
             // Set the error message if the date format is invalid
             this.err = 'The date should be in the format dd/mm/yyyy.';
->>>>>>> origin/master
             return false;
         }
         return true;
     }
 
-<<<<<<< HEAD
-    theDayExists(){
-
-        // An array of wrong dates
-        const wrongDate = ['31/04', '31/06', '31/09', '31/11', '30/02', '31/02'];
-
-        // check if the day exists in the month
-        if(wrongDate.includes(this._date.substring(0,5))){
-=======
     // Method to check if the day exists in the month
     theDayExists() {
         // An array of invalid dates
@@ -91,24 +56,11 @@ class DateValidator {
         if (wrongDate.includes(this._date.substring(0, 5))) {
             // Set the error message if the day does not exist in the month
             this.err = 'The day does not exist in the month.';
->>>>>>> origin/master
             return false;
         }
         return true;
     }
 
-<<<<<<< HEAD
-    isLeapYear(){
-
-        const year = parseInt(this._date.substring(6,10));
-        const date = this._date.substring(0,5);
-
-        // If the user inputs 29/02, check if it is a leap year
-        if(date === '29/02'){
-            if((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)){
-                return true;
-            } else {
-=======
     // Method to check if the year is a leap year
     isLeapYear() {
         // Extract the year from the date
@@ -124,19 +76,12 @@ class DateValidator {
             } else {
                 // Set the error message if the year is not a leap year
                 this.err = 'The year should be a leap year.';
->>>>>>> origin/master
                 return false;
             }
         }
         return true;
     }
 
-<<<<<<< HEAD
-    dateIsValid(){
-        if(!this.dateFormatIsValid() || !this.theDayExists() || !this.isLeapYear()){
-            return false;
-        }
-=======
     // Method to validate the date
     dateIsValid() {
         // Check if the date format is valid, the day exists, and the year is a leap year if necessary
@@ -145,17 +90,12 @@ class DateValidator {
         }
         // Clear the error message if the date is valid
         this.err = '';
->>>>>>> origin/master
         return true;
     }
 }
 
-<<<<<<< HEAD
-module.exports = DateValidator;
-=======
 // Export the DateValidator class as an ES module
 export default DateValidator;
->>>>>>> origin/master
 
 // test the code
 // let date = new DateValidator('29/02/2020'); // should return true

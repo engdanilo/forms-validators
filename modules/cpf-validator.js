@@ -24,10 +24,7 @@ class CpfValidator {
         this[cpf] = cpfInput.trim();
         this[cpfSymbol] = [];
         this[cpfLastDigits] = [];
-<<<<<<< HEAD
-=======
         this.err = '';
->>>>>>> origin/master
     }
 
     // ________________________Getters________________________
@@ -56,30 +53,16 @@ class CpfValidator {
     // Method to organize the cpf string into an array of numbers
     cpfOrganizer(){
         if(typeof this[cpf] !== 'string'){
-<<<<<<< HEAD
-            throw new Error('The CPF must be a string');
-        }
-        this[cpfSymbol] = this[cpf].replace(/[.-]/g, '').split('').map(Number);
-=======
             this.err = 'The CPF must be a string';
             return false;
         }
         this[cpfSymbol] = this[cpf].replace(/[.-]/g, '').split('').map(Number);
         return true;
->>>>>>> origin/master
     }
 
     // Method to check if the cpf format is valid
     isCpfFormatValid(){
         // First apply the cpfOrganizer method to get the cpf as an array of numbers
-<<<<<<< HEAD
-        this.cpfOrganizer();
-        // Now, we check if the cpf has 11 digits, if it has any repeated digit, 
-        // and if it has any non-numeric character
-        if(this[cpfSymbol].length !== 11) return false;
-        if(String(this[cpfSymbol]).match(/(\d)\1{10}/)) return false;
-        if(this[cpfSymbol].some(isNaN)) return false;
-=======
         if (!this.cpfOrganizer()) return false;
         // Now, we check if the cpf has 11 digits, if it has any repeated digit, 
         // and if it has any non-numeric character
@@ -95,7 +78,6 @@ class CpfValidator {
             this.err = 'The CPF must have only numbers';
             return false
         };
->>>>>>> origin/master
         // If all the conditions are met, we return true
         return true;
     }
@@ -140,15 +122,10 @@ class CpfValidator {
         if(!this.isCpfLastDigitsValid()) return false;
         const validator1 = [...this[cpf].split('').slice(-2)].map(Number);
         if(validator1[0] === this.cpfLastDigitsValid[0] && validator1[1] === this.cpfLastDigitsValid[1]){
-<<<<<<< HEAD
-            return true;
-        } else {
-=======
             this.err = '';
             return true;
         } else {
             this.err = 'Invalid CPF';
->>>>>>> origin/master
             return false;
         }
     }

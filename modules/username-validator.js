@@ -3,35 +3,6 @@
 // The username should be alphanumeric and should be between minlength to maxlength characters.
 // The default minlength is 3 and default maxlength is 20.
 
-<<<<<<< HEAD
-const _username = Symbol('username');
-
-class UsernameValidator{
-
-    constructor(username, minlength=3, maxlength=20){
-        this[_username] = username.trim();
-        this.minlength = minlength;
-        this.maxlength = maxlength;
-    }
-
-    get username(){
-        return this[_username];
-    }
-
-    set username(usernameInput){
-        let username = new UsernameValidator(usernameInput);
-        if(!username.usernameIsValid()) return false;
-        this[_username] = usernameInput.trim();
-    }
-
-    usernameIsValid(){
-
-        const usernameRegex = new RegExp(`^[a-zA-z0-9]{${this.minlength},${this.maxlength}}$`);
-
-        if (!usernameRegex.test(this[_username])){
-            return false;
-        }
-=======
 // Define a unique symbol for the username property to ensure it's private
 const _username = Symbol('username');
 
@@ -81,7 +52,6 @@ class UsernameValidator {
         }
         // Return true if the username is valid
         this.err = '';
->>>>>>> origin/master
         return true;
     }
 }

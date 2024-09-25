@@ -17,10 +17,7 @@
 class EmailValidator {
     constructor(email) {
         this._email = email.trim();
-<<<<<<< HEAD
-=======
         this.err = '';
->>>>>>> origin/master
     }
 
     // Getter to return the email
@@ -31,17 +28,12 @@ class EmailValidator {
     // Setter to set the email
     set email(setEmail) {
         let newEmail = new EmailValidator(setEmail);
-<<<<<<< HEAD
-        if (!newEmail.isEmailValid()) return false;
-        this._email = setEmail.trim();
-=======
         if (!newEmail.isEmailValid()) {
             this.err = 'Invalid email';
             return false;
         };
         this._email = setEmail.trim();
         return true;
->>>>>>> origin/master
     }
 
     isEmailValid() {
@@ -53,15 +45,10 @@ class EmailValidator {
         const whiteSpaceRegex = /^\S+@\S+\.\S+$/;
         // Now we will check if the email is valid according to the regular expressions above
         if (!emailRegex.test(this.email) || !whiteSpaceRegex.test(this.email)) {
-<<<<<<< HEAD
-            return false;
-        }
-=======
             this.err = 'Invalid email';
             return false;
         }
         this.err = '';
->>>>>>> origin/master
         return true;
     }
 }
