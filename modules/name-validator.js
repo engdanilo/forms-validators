@@ -8,6 +8,7 @@
 // The class has a method to check if the name and surname are valid
 
 
+<<<<<<< HEAD
 const _name = Symbol('name');
 const _surname = Symbol('surname');
 
@@ -39,46 +40,153 @@ class NameValidator{
 
     set surname(surname){
         this[_surname] = surname.trim();
+=======
+// Define unique symbols for the name and surname properties to ensure they are private
+const _name = Symbol('name');
+const _surname = Symbol('surname');
+
+class NameValidator {
+
+    // ________ Constructor ________
+    // IMPORTANT! The name and surname must be strings
+    constructor(name, surname) {
+        // Trim the input name and assign it to the private _name property
+        this[_name] = name.trim();
+        // Trim the input surname and assign it to the private _surname property
+        this[_surname] = surname.trim();
+        // Initialize an error message property
+        this.err = '';
+    }
+
+    // ________ Getters and Setters ________
+    // Getter method to retrieve the name in uppercase
+    get name() {
+        return this[_name].toUpperCase();
+    }
+
+    // Getter method to retrieve the surname in uppercase
+    get surname() {
+        return this[_surname].toUpperCase();
+    }
+
+    // Getter method to retrieve the complete name in uppercase
+    get completeName() {
+        return `${this[_name].toUpperCase()} ${this[_surname].toUpperCase()}`;
+    }
+
+    // Setter method to update the name
+    set name(name) {
+        // Create a new instance of NameValidator with the input name and existing surname
+        const newName = new NameValidator(name, this[_surname]);
+        // Validate the new name
+        if (!newName.nameIsValid()) {
+            // Set the error message if the name is invalid
+            this.err = 'Invalid name';
+            return false;
+        }
+        // Trim and set the new name if it's valid
+        this[_name] = name.trim();
+        return true;
+    }
+
+    // Setter method to update the surname
+    set surname(surname) {
+        // Create a new instance of NameValidator with the existing name and input surname
+        const newSurname = new NameValidator(this[_name], surname);
+        // Validate the new surname
+        if (!newSurname.nameIsValid()) {
+            // Set the error message if the surname is invalid
+            this.err = 'Invalid surname';
+            return false;
+        }
+        // Trim and set the new surname if it's valid
+        this[_surname] = surname.trim();
+        return true;
+>>>>>>> origin/master
     }
 
     // ________ Methods ________
     // This method checks if the name and surname have at least 3 characters
+<<<<<<< HEAD
     nameHasMinimumLength(){
         if(this.name.length < 2 || this.surname.length < 2){
+=======
+    nameHasMinimumLength() {
+        // Check if the name or surname has less than 2 characters
+        if (this.name.length < 2 || this.surname.length < 2) {
+            // Set the error message if the name or surname has less than 2 characters
+            this.err = 'Name and surname must have at least 2 characters';
+>>>>>>> origin/master
             return false;
         }
         return true;
     }
 
     // This method checks if the name and surname have numbers
+<<<<<<< HEAD
     nameHasNoNumbers(){
         const numberRegex = /\d/;
         if(numberRegex.test(this.name) || numberRegex.test(this.surname)){
+=======
+    nameHasNoNumbers() {
+        // Regular expression to check for numbers
+        const numberRegex = /\d/;
+        // Test the name and surname against the regular expression
+        if (numberRegex.test(this.name) || numberRegex.test(this.surname)) {
+            // Set the error message if the name or surname contains numbers
+            this.err = 'Name and surname must not contain numbers';
+>>>>>>> origin/master
             return false;
         }
         return true;
     }
 
     // This method checks if the name and surname are strings
+<<<<<<< HEAD
     nameIsString(){
         if(typeof this.name !== 'string' || typeof this.surname !== 'string'){
+=======
+    nameIsString() {
+        // Check if the name or surname is not a string
+        if (typeof this.name !== 'string' || typeof this.surname !== 'string') {
+            // Set the error message if the name or surname is not a string
+            this.err = 'Name and surname must be strings';
+>>>>>>> origin/master
             return false;
         }
         return true;
     }
 
     // This method checks if the name and surname have invalid characters
+<<<<<<< HEAD
     nameHasNoInvalidCharacters(){
         const invalidCharsRegex = /[@#$%*&_)(}{+=.,><;:?`]/;
         if(invalidCharsRegex.test(this.name) || invalidCharsRegex.test(this.surname)){
+=======
+    nameHasNoInvalidCharacters() {
+        // Regular expression to check for invalid characters
+        const invalidCharsRegex = /[@#$%*&_)(}{+=.,><;:?`]/;
+        // Test the name and surname against the regular expression
+        if (invalidCharsRegex.test(this.name) || invalidCharsRegex.test(this.surname)) {
+            // Set the error message if the name or surname contains special characters
+            this.err = 'Name and surname must not contain special characters';
+>>>>>>> origin/master
             return false;
         }
         return true;
     }
 
     // This method checks if the name and surname are valid
+<<<<<<< HEAD
     nameIsValid(){
         if(this.nameHasMinimumLength() && this.nameHasNoNumbers() && this.nameIsString() && this.nameHasNoInvalidCharacters()){
+=======
+    nameIsValid() {
+        // Check if the name and surname meet all validation criteria
+        if (this.nameHasMinimumLength() && this.nameHasNoNumbers() && this.nameIsString() && this.nameHasNoInvalidCharacters()) {
+            // Clear the error message if the name and surname are valid
+            this.err = '';
+>>>>>>> origin/master
             return true;
         }
         return false;
