@@ -15,10 +15,17 @@ BrFormsValidator is a comprehensive library designed to validate various types o
 ## **Installation**
 To install BrFormsValidator, you can use npm with the following commands:
 
+### Default Instalation
 ```sh
 npm install brformsvalidator
+```
+### Instalation As Production Dependencie
+```sh
 npm install brformsvalidator --save
-npm install brformsvalidator --save-br
+```
+### Instalation As Dev Dependencie
+```sh
+npm install brformsvalidator --save-dev
 ```
 
 ## **Usage**
