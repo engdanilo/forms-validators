@@ -1,11 +1,11 @@
 // Importa os módulos de validação necessários
-const cnpjValidator = require('./cnpj-validator');
-const cpfValidator = require('./cpf-validator');
-const emailValidator = require('./email-validator');
-const nameValidator = require('./name-validator');
-const dateValidator = require('./date-validator');
-const usDateValidator = require('./us-date-validator');
-const usernameValidator = require('./username-validator');
+const cnpjValidator = require('./modules/cnpj-validator');
+const cpfValidator = require('./modules/cpf-validator');
+const emailValidator = require('./modules/email-validator');
+const nameValidator = require('./modules/name-validator');
+const dateValidator = require('./modules/date-validator');
+const usDateValidator = require('./modules/us-date-validator');
+const usernameValidator = require('./modules/username-validator');
 
 // Define a classe FormsValidator para validar diferentes tipos de dados de formulário
 class BrFormsValidator {
