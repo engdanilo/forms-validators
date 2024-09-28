@@ -133,7 +133,7 @@ class CnpjValidator {
 }
 
 // Export the CnpjValidator class as an ES module
-export default CnpjValidator;
+module.exports = CnpjValidator;
 
 // // To check if the cnpj is valid, you can use the following code:
 // const newCnpj = new CnpjValidator('11.444.777/0001-62');

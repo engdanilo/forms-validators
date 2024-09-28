@@ -95,7 +95,7 @@ class DateValidator {
 }
 
 // Export the DateValidator class as an ES module
-export default DateValidator;
+module.exports = DateValidator;
 
 // test the code
 // let date = new DateValidator('29/02/2020'); // should return true
